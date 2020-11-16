@@ -64,7 +64,8 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
-        let post = posts[indexPath.row]
+        let post = posts[posts.count-indexPath.row-1]
+        //print(indexPath.row)
         let user = post["author"] as! PFUser
         cell.usernameLable.text = user.username
         cell.captionLable.text = post["caption"] as? String
